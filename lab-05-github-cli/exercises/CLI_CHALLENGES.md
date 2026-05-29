@@ -159,11 +159,11 @@ gh copilot suggest "run a command and save stdout and stderr to a file named sum
 
 ---
 
-## Expert challenge: Fleet mode
+## Expert challenge: VS Code agent mode
 
-### Use Copilot Fleet mode for a multi-step task
+### Use Copilot agent mode for a multi-step task
 
-Fleet mode (also called agent mode in VS Code) allows Copilot to autonomously plan and execute a sequence of steps to accomplish a complex goal — with your review at each stage.
+In VS Code, agent mode allows Copilot to autonomously plan and execute a sequence of steps to accomplish a complex goal — with your review at each stage.
 
 #### In VS Code (agent mode)
 
@@ -183,20 +183,10 @@ Review all Python files in lab-03-feature-build/starter/, identify any missing e
 - Practice approving, rejecting, or refining individual steps
 - Compare this to what you would do manually
 
-#### In the terminal (experimental)
-
-If you have access to the `gh copilot` agent mode preview:
-
-```bash
-gh copilot suggest --mode agent "find all TODO comments in this repo and create a summary markdown file"
-```
-
-> Note: Agent/Fleet mode availability may vary by account tier and whether experimental features are enabled. If this flag is not available, use the VS Code agent mode above.
-
 **Reflection questions:**
 - Where did Copilot's plan make sense?
 - Where did you need to correct its approach?
-- How does Fleet mode compare to running individual `suggest` commands?
+- How does agent mode compare to running individual `suggest` commands?
 
 ---
 
@@ -232,5 +222,5 @@ After finishing the challenges, think about:
 
 - What tasks in your daily workflow would benefit most from `gh copilot suggest`?
 - When would you use `gh copilot explain` before running a command?
-- How does Fleet mode change what you delegate vs. what you control?
+- How does agent mode change what you delegate vs. what you control?
 - What is the right split between terminal-based Copilot and editor-based Copilot in your own work?

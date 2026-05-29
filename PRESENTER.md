@@ -5,7 +5,7 @@
 - **Title:** Accelerated Copilot Bootcamp — Fundamentals to Advanced
 - **Duration:** 140 minutes
 - **Audience:** Mixed technical and non-technical learners, all skill levels, starting from zero
-- **Primary focus:** GitHub Copilot completions + Chat, prompt engineering, CLI usage, Fleet mode, practical workflows
+- **Primary focus:** GitHub Copilot completions + Chat, prompt engineering, CLI usage, VS Code agent mode, practical workflows
 - **Format:** Live demos + attendee hands-on labs + Q&A
 - **Tech requirements:** VS Code, GitHub Copilot, Copilot Chat, Node.js LTS, Python 3.9+, GitHub CLI, internet access
 
@@ -466,7 +466,7 @@ Example prompt:
 
 ## Section goal
 
-Show attendees that GitHub Copilot extends beyond the editor into the terminal, and introduce Fleet / agent mode as a way to delegate multi-step tasks.
+Show attendees that GitHub Copilot extends beyond the editor into the terminal, and introduce VS Code agent mode as a way to delegate multi-step tasks.
 
 ## Framing statement
 
@@ -502,7 +502,7 @@ gh copilot --version
 
 🗣 **Say this:**
 
-> If you have a GitHub account with Copilot access, this is all you need. The same subscription that powers your IDE completions also powers the CLI.
+> If you have a GitHub account with Copilot access, this is all you need for the `gh copilot` exercises in this lab. For newer terminal agent workflows, GitHub is moving toward the standalone GitHub Copilot CLI.
 
 ---
 
@@ -581,7 +581,7 @@ gh copilot suggest "undo the last commit but keep the changes staged" --target g
 | Understanding unfamiliar shell script | CLI (`gh copilot explain`) |
 | Debugging a complex function | IDE (Copilot Chat) |
 | Running a multi-step Git workflow | CLI (`gh copilot suggest --target git`) |
-| Automated multi-step project task | Either (Fleet/agent mode) |
+| Automated multi-step project task | VS Code agent mode |
 
 🗣 **Key message:**
 
@@ -589,13 +589,13 @@ gh copilot suggest "undo the last commit but keep the changes staged" --target g
 
 ---
 
-## Demo: Fleet / agent mode
+## Demo: VS Code agent mode
 
-🗣 **Introduce Fleet mode**
+🗣 **Introduce agent mode**
 
-> Fleet mode — also called agent mode in VS Code — is what happens when you give Copilot a high-level goal and let it plan and execute the steps, instead of writing one prompt at a time. Think of it like hiring a junior engineer: you give them the goal, you review their work at each step, and you stay in control of what gets applied.
+> In VS Code, agent mode is what happens when you give Copilot a high-level goal and let it plan and execute the steps, instead of writing one prompt at a time. Think of it like hiring a junior engineer: you give them the goal, you review their work at each step, and you stay in control of what gets applied.
 
-### Fleet mode in VS Code
+### Agent mode in VS Code
 
 💻 **Live demo flow**
 
@@ -615,17 +615,17 @@ Review all Python files in lab-03-feature-build/starter/ and identify any functi
 
 🗣 **Teaching points**
 
-- Fleet / agent mode is not "set and forget." You are always in the approval loop.
+- Agent mode is not "set and forget." You are always in the approval loop.
 - It is most powerful for tasks with multiple steps across multiple files.
 - Think of it as Copilot doing the tedious parts while you focus on review and judgment.
 
 ⚠️ **Presenter tip:** If agent mode is not available in your VS Code version, demo this with a multi-turn Chat conversation that mirrors the same workflow manually.
 
-### Knowing when to use Fleet mode
+### Knowing when to use agent mode
 
 🗣
 
-> Use Fleet mode when the task is well-defined but involves too many steps to prompt one by one. Use regular Chat when you want tighter control at each step. Use completions when you mostly know what to write next.
+> Use agent mode when the task is well-defined but involves too many steps to prompt one by one. Use regular Chat when you want tighter control at each step. Use completions when you mostly know what to write next.
 
 ---
 
@@ -633,7 +633,7 @@ Review all Python files in lab-03-feature-build/starter/ and identify any functi
 
 🧪 **Cue for attendees**
 
-> Your turn. Open `lab-05-github-cli/exercises/CLI_CHALLENGES.md` and work through the challenges. If you have GitHub CLI installed and authenticated, start with `explain` and `suggest`. If you do not have it yet, work through the Fleet mode section in VS Code.
+> Your turn. Open `lab-05-github-cli/exercises/CLI_CHALLENGES.md` and work through the challenges. If you have GitHub CLI installed and authenticated, start with `explain` and `suggest`. If you do not have it yet, work through the agent mode section in VS Code.
 
 ⚠️ **Facilitation tips**
 
@@ -663,7 +663,7 @@ Review all Python files in lab-03-feature-build/starter/ and identify any functi
 - Use completions for routine code you already understand
 - Use Chat for explanation, debugging, refactoring, and tests
 - Install `gh` and `gh copilot` and try it on a real shell task this week
-- Try Fleet / agent mode on a real project task
+- Try VS Code agent mode on a real project task
 - Reuse the labs in this repo after the session
 - Try the same workflows on a real project at work this week
 
@@ -701,7 +701,7 @@ If time remains, show the `solutions/` directory and compare one attendee implem
 - **Copilot completions** = fast drafting in the editor
 - **Copilot Chat** = explanation, transformation, debugging, planning
 - **GitHub Copilot CLI** = generate and explain shell, Git, and `gh` commands from the terminal
-- **Fleet / agent mode** = multi-step task delegation with step-by-step approval
+- **VS Code agent mode** = multi-step task delegation with step-by-step approval
 - **Better prompts** = more context, more intent, more constraints
 - **Best workflow** = completions for momentum, Chat for reasoning, CLI for terminal tasks
 - **Best facilitation move** = ask attendees what they told Copilot

@@ -81,6 +81,8 @@ gh --version
 
 #### Authenticate and enable Copilot in the CLI
 
+> **Note:** This lab uses the legacy `github/gh-copilot` extension for the `suggest` and `explain` exercises. GitHub is moving new terminal agent workflows to the standalone GitHub Copilot CLI, so use that tool for new `/fleet`-style automation going forward: https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli
+
 1. Authenticate with your GitHub account:
 
 ```bash
@@ -216,4 +218,4 @@ If you are using a managed machine, extensions or sign-in flows may be restricte
 - [ ] Python 3.9+ installed
 - [ ] Repository forked and cloned
 - [ ] GitHub CLI (`gh`) installed and authenticated
-- [ ] `gh copilot` extension installed and verified
+- [ ] `gh copilot` extension installed and verified for Lab 05
