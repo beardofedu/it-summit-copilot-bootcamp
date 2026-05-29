@@ -44,6 +44,75 @@ python --version
 
 > Note: On some systems the command may be `python3` instead of `python`.
 
+### 6. GitHub CLI
+
+Install the GitHub CLI to use Copilot from the terminal.
+
+**macOS (Homebrew):**
+
+```bash
+brew install gh
+```
+
+**Windows (winget):**
+
+```powershell
+winget install --id GitHub.cli
+```
+
+**Linux (apt):**
+
+```bash
+(type -p wget >/dev/null || (sudo apt update && sudo apt-get install wget -y)) \
+&& sudo mkdir -p -m 755 /etc/apt/keyrings \
+&& out=$(mktemp) && wget -nv -O$out https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+&& cat $out | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
+&& sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
+&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+&& sudo apt update \
+&& sudo apt install gh -y
+```
+
+Verify the installation:
+
+```bash
+gh --version
+```
+
+#### Authenticate and enable Copilot in the CLI
+
+> **Note:** This lab uses the legacy `github/gh-copilot` extension for the `suggest` and `explain` exercises. GitHub is moving new terminal agent workflows to the standalone GitHub Copilot CLI, so use that tool for new `/fleet`-style automation going forward: https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli
+
+1. Authenticate with your GitHub account:
+
+```bash
+gh auth login
+```
+
+Follow the prompts and choose to authenticate via browser.
+
+2. Install the Copilot extension for the CLI:
+
+```bash
+gh extension install github/gh-copilot
+```
+
+3. Verify the extension is installed:
+
+```bash
+gh copilot --version
+```
+
+4. Run a quick test:
+
+```bash
+gh copilot suggest "list all files in the current directory sorted by size"
+```
+
+If Copilot responds with a shell command suggestion, you are ready for Lab 05.
+
+> **Note:** GitHub Copilot CLI requires a GitHub account with an active Copilot subscription (Individual, Business, or Enterprise). If you see an authentication error, confirm that Copilot is enabled on your account at https://github.com/settings/copilot.
+
 ## Sign in and enable Copilot
 
 1. Open VS Code.
@@ -148,3 +217,5 @@ If you are using a managed machine, extensions or sign-in flows may be restricte
 - [ ] Node.js LTS installed
 - [ ] Python 3.9+ installed
 - [ ] Repository forked and cloned
+- [ ] GitHub CLI (`gh`) installed and authenticated
+- [ ] `gh copilot` extension installed and verified for Lab 05

@@ -14,6 +14,8 @@ By the end of the session, attendees should be able to:
 - Use **Copilot Chat** for more complex, multi-step development work
 - Understand when to use **inline suggestions vs. Chat**
 - Write better prompts using comments, function names, type hints, and docstrings
+- Use **GitHub Copilot CLI** to generate and explain shell commands from the terminal
+- Use **VS Code agent mode** to delegate multi-step tasks to Copilot
 - Build confidence with realistic coding scenarios they can reuse at work
 
 ## Prerequisites
@@ -28,6 +30,7 @@ You will need:
 - Node.js LTS
 - Python 3.9+
 - A GitHub account with repository access and fork permissions
+- GitHub CLI (`gh`) with the Copilot extension installed
 
 ## Session agenda
 
@@ -37,6 +40,7 @@ You will need:
 | 15 min | Transitioning to Copilot Chat for complex tasks |
 | 50 min | Hands-on lab: building a feature using both tools |
 | 20 min | Slash commands and advanced Chat features |
+| 20 min | GitHub Copilot CLI: suggest, explain, and VS Code agent mode |
 | 15 min | Q&A |
 
 ## Lab directory map
@@ -45,6 +49,7 @@ You will need:
 - [`lab-02-prompt-engineering/`](./lab-02-prompt-engineering/) — learn how prompt quality changes Copilot output
 - [`lab-03-feature-build/`](./lab-03-feature-build/) — build a complete Python Task Manager CLI using completions and Chat
 - [`lab-04-advanced-chat/`](./lab-04-advanced-chat/) — explore slash commands, file references, and multi-turn Chat workflows
+- [`lab-05-github-cli/`](./lab-05-github-cli/) — use GitHub Copilot CLI to suggest and explain commands, and practice VS Code agent mode
 - [`solutions/`](./solutions/) — reference implementations and example outputs
 - [`setup/`](./setup/) — environment preparation and troubleshooting
 - [`PRESENTER.md`](./PRESENTER.md) — detailed presenter talk track and demo guidance
@@ -61,6 +66,7 @@ You will need:
    - Lab 02 → prompt engineering
    - Lab 03 → feature build
    - Lab 04 → advanced Chat
+   - Lab 05 → GitHub Copilot CLI
 5. Compare your work with the files in [`solutions/`](./solutions/) if you get stuck or want a reference.
 
 ### Presenters
@@ -86,5 +92,8 @@ Or fork from the GitHub UI and clone your fork manually.
 - [GitHub Copilot Chat overview](https://docs.github.com/en/copilot/github-copilot-chat/about-github-copilot-chat)
 - [VS Code GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
 - [VS Code GitHub Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat)
+- [GitHub Copilot in the CLI](https://docs.github.com/en/copilot/github-copilot-in-the-cli/about-github-copilot-in-the-cli)
+- [GitHub CLI installation](https://cli.github.com/)
+- [VS Code agent mode](https://code.visualstudio.com/docs/copilot/agents/overview)
 
 Enjoy the bootcamp — and remember that the goal is not just to use Copilot faster, but to use it **more intentionally**.
