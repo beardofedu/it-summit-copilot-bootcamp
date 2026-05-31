@@ -45,6 +45,7 @@ You will need:
 
 ## Lab directory map
 
+- [`demo-app/`](./demo-app/) — **sample application** used by the presenter across all demo sections (Contact Book CLI)
 - [`lab-01-completions/`](./lab-01-completions/) — practice getting better inline suggestions in Python and JavaScript
 - [`lab-02-prompt-engineering/`](./lab-02-prompt-engineering/) — learn how prompt quality changes Copilot output
 - [`lab-03-feature-build/`](./lab-03-feature-build/) — build a complete Python Task Manager CLI using completions and Chat

@@ -5,3 +5,5 @@ node_modules/
 *.log
 solutions/lab-03/tasks.json
 lab-03-feature-build/starter/tasks.json
+demo-app/contacts.json
+demo-app/contacts_export.csv
