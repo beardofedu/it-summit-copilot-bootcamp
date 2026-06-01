@@ -41,6 +41,7 @@ You will need:
 | 50 min | Hands-on lab: building a feature using both tools |
 | 20 min | Slash commands and advanced Chat features |
 | 20 min | GitHub Copilot CLI: suggest, explain, and VS Code agent mode |
+| 15 min | GitHub Copilot app: agent-driven development and parallel workstreams |
 | 15 min | Q&A |
 
 ## Lab directory map
@@ -51,6 +52,7 @@ You will need:
 - [`lab-03-feature-build/`](./lab-03-feature-build/) — build a complete Python Task Manager CLI using completions and Chat
 - [`lab-04-advanced-chat/`](./lab-04-advanced-chat/) — explore slash commands, file references, and multi-turn Chat workflows
 - [`lab-05-github-cli/`](./lab-05-github-cli/) — use GitHub Copilot CLI to suggest and explain commands, and practice VS Code agent mode
+- [`lab-06-copilot-app/`](./lab-06-copilot-app/) — use the GitHub Copilot app for agent-driven development and parallel workstreams
 - [`solutions/`](./solutions/) — reference implementations and example outputs
 - [`setup/`](./setup/) — environment preparation and troubleshooting
 - [`PRESENTER.md`](./PRESENTER.md) — detailed presenter talk track and demo guidance
@@ -68,6 +70,7 @@ You will need:
    - Lab 03 → feature build
    - Lab 04 → advanced Chat
    - Lab 05 → GitHub Copilot CLI
+   - Lab 06 → GitHub Copilot app
 5. Compare your work with the files in [`solutions/`](./solutions/) if you get stuck or want a reference.
 
 ### Presenters
@@ -96,5 +99,6 @@ Or fork from the GitHub UI and clone your fork manually.
 - [GitHub Copilot in the CLI](https://docs.github.com/en/copilot/github-copilot-in-the-cli/about-github-copilot-in-the-cli)
 - [GitHub CLI installation](https://cli.github.com/)
 - [VS Code agent mode](https://code.visualstudio.com/docs/copilot/agents/overview)
+- [GitHub Copilot app](https://github.com/github/app)
 
 Enjoy the bootcamp — and remember that the goal is not just to use Copilot faster, but to use it **more intentionally**.
