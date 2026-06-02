@@ -25,6 +25,7 @@
   - [ ] `lab-03-feature-build/starter/main.py`
   - [ ] `lab-04-advanced-chat/exercises/CHAT_CHALLENGES.md`
   - [ ] `lab-05-github-cli/exercises/CLI_CHALLENGES.md`
+  - [ ] `lab-06-copilot-app/exercises/APP_CHALLENGES.md`
 - [ ] Decide whether you will reveal the `solutions/` directory during the session or only after debrief
 - [ ] Have a backup plan if Copilot is temporarily unavailable: use screenshots, prerecorded GIFs, or talk through expected behaviors
 
@@ -643,7 +644,122 @@ Review all Python files in lab-03-feature-build/starter/ and identify any functi
 
 ---
 
-# Section 6: Q&A & Wrap-up
+# Section 6: GitHub Copilot App
+
+⏱ **15 minutes**
+
+## Section goal
+
+Introduce the GitHub Copilot app as a dedicated desktop experience for agent-driven development, and show how it extends the capabilities covered in previous sections into a full PR workflow with parallel workstreams.
+
+## Framing statement
+
+🗣
+
+> Everything we have built toward in this session — completions, Chat, agent mode, CLI — is available piecemeal across different tools. The GitHub Copilot app brings agent-driven development into a single desktop experience built natively on top of GitHub. You get your repositories, issues, and pull requests all in one place, with the ability to run multiple agents in parallel.
+
+---
+
+## What is the GitHub Copilot App?
+
+🗣 **Key points to cover**
+
+- The GitHub Copilot app is a standalone desktop application for **agent-driven development**.
+- It is built on top of GitHub Copilot CLI and integrates natively with GitHub.
+- Key capabilities:
+  - **Parallel workstreams** — run multiple agent sessions at the same time for independent tasks
+  - **GitHub-native integration** — repositories, issues, branches, and CI pipelines work out of the box
+  - **Full PR lifecycle** — the agent can create, update, and manage pull requests directly from the app
+  - **No context switching** — replaces the need to juggle a terminal, an IDE, and browser tabs
+- Currently in **public preview**:
+  - Copilot Business and Enterprise: available today
+  - Copilot Pro and Pro+: sign up for early access at [gh.io/github-app](https://gh.io/github-app)
+
+⚠️ **Presenter tip:** If attendees do not yet have access, run the demo yourself and direct them to sign up afterward. The lab includes a note explaining this.
+
+---
+
+## Demo: start an agent session
+
+💻 **Live demo flow**
+
+1. Open the GitHub Copilot app.
+2. Select a repository from the sidebar.
+3. Click **New session** and enter a task:
+
+```text
+Add a CONTRIBUTING.md file to this repository. Include sections for how to report bugs, how to propose changes, and the pull request process.
+```
+
+4. Show the agent planning its steps before making changes.
+5. Walk through the **Files** tab to show the diff the agent produced.
+
+🗣 **Teaching points**
+
+- The agent proposes a plan before acting — it is not just making changes blindly.
+- You can review and refine each step before accepting.
+- This is the same approval-loop principle as VS Code agent mode, but extended across the full GitHub workflow.
+
+---
+
+## Demo: parallel workstreams
+
+💻 **Narrate this concept live (or demo if time allows)**
+
+🗣
+
+> One of the most powerful things about the Copilot app is that you are not limited to one task at a time. You can start a session to write tests on one branch while another session is updating documentation on a different branch — both running simultaneously, both producing pull requests for your review.
+
+Show (or describe):
+
+1. **Session 1:** "Write unit tests for the utility module"
+2. **Session 2:** "Update the README to document the new testing workflow"
+3. Both appear in the sidebar as active sessions.
+4. Each produces its own pull request.
+
+🗣 **Teaching points**
+
+- Parallel sessions work best for **independent, non-conflicting tasks**.
+- You are the orchestrator — you decide what runs in parallel and what runs in sequence.
+- This shifts your role from "writer of code" to "director of agents."
+
+---
+
+## Comparing the full Copilot ecosystem
+
+🗣 **Walk through this comparison live or on a slide:**
+
+| Scenario | Best tool |
+| --- | --- |
+| Writing or editing a single function | IDE completions (VS Code) |
+| Debugging or refactoring with explanation | Copilot Chat (VS Code) |
+| Generating a shell or Git command | GitHub Copilot CLI |
+| Multi-step task with step-by-step approval | VS Code agent mode |
+| Full PR workflow across multiple files | GitHub Copilot app |
+| Running two independent features in parallel | GitHub Copilot app |
+| Working from a GitHub issue | GitHub Copilot app |
+
+🗣 **Key message:**
+
+> These tools are layered, not competing. Inline completions are the foundation. Chat adds reasoning. Agent mode adds autonomy. The Copilot app adds the full GitHub lifecycle and parallel scale. You do not have to choose one — you choose the right layer for the task.
+
+---
+
+## Transition to hands-on
+
+🧪 **Cue for attendees**
+
+> If you have access to the GitHub Copilot app, open `lab-06-copilot-app/exercises/APP_CHALLENGES.md` and start with the beginner challenge. If you are still on the waitlist, continue exploring the CLI challenges or try the VS Code agent mode exercise.
+
+⚠️ **Facilitation tips**
+
+- Not everyone will have access yet — this is expected in a public preview. Keep the energy positive about what is coming.
+- Focus on the concepts (parallel sessions, PR lifecycle, issue integration) even for attendees who are watching the demo only.
+- The comparison table is a useful reference for answering "which tool should I use?" questions.
+
+---
+
+# Section 7: Q&A & Wrap-up
 
 ⏱ **15 minutes**
 
@@ -664,6 +780,7 @@ Review all Python files in lab-03-feature-build/starter/ and identify any functi
 - Use Chat for explanation, debugging, refactoring, and tests
 - Install `gh` and `gh copilot` and try it on a real shell task this week
 - Try VS Code agent mode on a real project task
+- Sign up for or install the GitHub Copilot app and run your first agent session
 - Reuse the labs in this repo after the session
 - Try the same workflows on a real project at work this week
 
@@ -676,6 +793,8 @@ Review all Python files in lab-03-feature-build/starter/ and identify any functi
 🙋 “How do you balance speed with code quality when using AI tools?”
 
 🙋 “What is the difference between asking Chat for a solution vs. asking it for options?”
+
+🙋 "How does the GitHub Copilot app change the way you think about pull requests and code review?"
 
 ## Final reminders
 
@@ -702,6 +821,7 @@ If time remains, show the `solutions/` directory and compare one attendee implem
 - **Copilot Chat** = explanation, transformation, debugging, planning
 - **GitHub Copilot CLI** = generate and explain shell, Git, and `gh` commands from the terminal
 - **VS Code agent mode** = multi-step task delegation with step-by-step approval
+- **GitHub Copilot app** = agent-driven development with parallel workstreams and full PR lifecycle
 - **Better prompts** = more context, more intent, more constraints
-- **Best workflow** = completions for momentum, Chat for reasoning, CLI for terminal tasks
+- **Best workflow** = completions for momentum, Chat for reasoning, CLI for terminal tasks, app for full PR workflows
 - **Best facilitation move** = ask attendees what they told Copilot
