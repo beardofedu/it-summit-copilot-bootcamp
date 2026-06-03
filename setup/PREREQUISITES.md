@@ -79,11 +79,11 @@ Verify the installation:
 gh --version
 ```
 
-#### Authenticate and enable Copilot in the CLI
+#### Authenticate and install the GitHub Copilot CLI
 
-> **Note:** This lab uses the legacy `github/gh-copilot` extension for the `suggest` and `explain` exercises. GitHub is moving new terminal agent workflows to the standalone GitHub Copilot CLI, so use that tool for new `/fleet`-style automation going forward: https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli
+> **Note:** This lab uses the standalone GitHub Copilot CLI (`copilot`), not the older `github/gh-copilot` extension. If you previously used `gh copilot suggest` or `gh copilot explain` and see a `Did you mean: copilot -i "..."?` error, that's the deprecation in progress — install the standalone CLI below.
 
-1. Authenticate with your GitHub account:
+1. Authenticate with GitHub (used by `gh` for unrelated commands; the standalone `copilot` CLI authenticates separately on first run):
 
 ```bash
 gh auth login
@@ -91,25 +91,27 @@ gh auth login
 
 Follow the prompts and choose to authenticate via browser.
 
-2. Install the Copilot extension for the CLI:
+2. Install the standalone GitHub Copilot CLI via npm:
 
 ```bash
-gh extension install github/gh-copilot
+npm install -g @github/copilot
 ```
 
-3. Verify the extension is installed:
+If you don't have npm, install Node.js first from https://nodejs.org or via your package manager (`brew install node`, `winget install OpenJS.NodeJS`, etc.).
+
+3. Verify the install:
 
 ```bash
-gh copilot --version
+copilot --version
 ```
 
-4. Run a quick test:
+4. Run a quick test (the first run will open a browser to authenticate with GitHub):
 
 ```bash
-gh copilot suggest "list all files in the current directory sorted by size"
+copilot -p "give me the shell command to list all files in the current directory sorted by size"
 ```
 
-If Copilot responds with a shell command suggestion, you are ready for Lab 05.
+If Copilot responds with a shell command suggestion and prints an `AI Credits` + `Tokens` line at the bottom, you are ready for Lab 05.
 
 > **Note:** GitHub Copilot CLI requires a GitHub account with an active Copilot subscription (Individual, Business, or Enterprise). If you see an authentication error, confirm that Copilot is enabled on your account at https://github.com/settings/copilot.
 

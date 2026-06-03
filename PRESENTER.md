@@ -17,7 +17,8 @@
 - [ ] Verify GitHub Copilot is signed in and active
 - [ ] Verify Copilot Chat is available in the editor/sidebar
 - [ ] Open the terminal and confirm `python --version` and `node --version`
-- [ ] Confirm `gh --version` and `gh copilot --version` in the terminal
+- [ ] Confirm `gh --version` in the terminal
+- [ ] Install the standalone GitHub Copilot CLI (`npm install -g @github/copilot`) and confirm `copilot --version`
 - [ ] Pre-open these files in tabs:
   - [ ] `README.md`
   - [ ] `lab-01-completions/prompt_practice.py`
@@ -477,28 +478,28 @@ Example prompt:
 
 ## Section goal
 
-Show attendees that GitHub Copilot extends beyond the editor into the terminal, and introduce VS Code agent mode as a way to delegate multi-step tasks.
+Show attendees that GitHub Copilot now lives in the terminal as a full interactive agent — same engine as the IDE, billed per session. Introduce the cost-aware mental model from the start, and bridge to VS Code agent mode for the IDE side of the same agentic story.
 
 ## Framing statement
 
 🗣
 
-> Everything we have done so far has been inside VS Code. But your terminal is where a lot of real work happens: running builds, writing scripts, using Git, interacting with cloud tools. GitHub Copilot meets you there too.
+> Until recently, terminal Copilot meant `gh copilot suggest` and `gh copilot explain` — a lightweight wrapper around the API. That tool is being replaced. The GitHub Copilot CLI is now a standalone, fully interactive agent that runs in your terminal — same engine as VS Code Chat, same credit-based billing. The mental shift: from "free command translator" to "billed AI session." Everything we're about to talk about — `/usage`, `/chronicle`, `/compact` — lives here.
 
 ---
 
-## What is GitHub Copilot in the CLI?
+## What is the GitHub Copilot CLI?
 
 🗣 **Key points to cover**
 
-- The GitHub CLI (`gh`) has a `copilot` extension that adds two main commands:
-  - `gh copilot suggest` — generate a shell, Git, or `gh` command from natural language
-  - `gh copilot explain` — get a plain-English explanation of an existing command
-- It is not inline completions in the terminal. Think of it as **Chat for your shell**.
-- It targets three command types via `--target`:
-  - `shell` (default) — general shell commands
-  - `git` — Git-specific commands
-  - `gh` — GitHub CLI commands
+- Standalone CLI binary (`copilot`), distinct from the `gh` GitHub CLI.
+- Installed via `npm install -g @github/copilot` — one-time setup.
+- Two primary modes:
+  - `copilot -p "<prompt>"` — non-interactive, prints answer and exits. Good for scripts and quick lookups.
+  - `copilot -i "<prompt>"` (or `copilot` with no args) — interactive agent session with full capabilities: file edits, shell execution, multi-turn reasoning.
+- **Every invocation prints AI Credits used and token counts at the end of the output.** UBB visibility is built in — you literally see what each prompt costs.
+
+⚠️ **Heads up — the old `gh copilot` extension is being deprecated.** On newer installs, `gh copilot suggest` and `gh copilot explain` now error out with a "did you mean `copilot -i`" hint. If an attendee asks why the old commands don't work, that's why.
 
 ## Demo: install and authenticate
 
@@ -507,19 +508,19 @@ Show attendees that GitHub Copilot extends beyond the editor into the terminal, 
 Show the install commands and run them live, or refer attendees to `setup/PREREQUISITES.md`.
 
 ```bash
-gh extension install github/gh-copilot
-gh copilot --version
+npm install -g @github/copilot
+copilot --version
 ```
 
 🗣 **Say this:**
 
-> If you have a GitHub account with Copilot access, this is all you need for the `gh copilot` exercises in this lab. For newer terminal agent workflows, GitHub is moving toward the standalone GitHub Copilot CLI.
+> If you have a GitHub account with Copilot access, this is all you need. The first time you run `copilot`, it will open a browser to authenticate. After that, every prompt is a billed agent session — same as VS Code Chat.
 
 ---
 
 ## Dead-air narration: cost-aware slash commands
 
-📣 **Use this during install/setup time.** While attendees are running `gh extension install github/gh-copilot`, authenticating, and trying their first commands, walk through these talking points. Treat it as a script — drop any individual command if the room is moving fast.
+📣 **Use this during install/setup time.** While attendees are running `npm install -g @github/copilot`, authenticating, and trying their first commands, walk through these talking points. Treat it as a script — drop any individual command if the room is moving fast.
 
 🗣 **Framing line to open:**
 
@@ -587,94 +588,85 @@ gh copilot --version
 
 ---
 
-## Demo: `gh copilot explain`
+## Demo: `copilot -p` — non-interactive one-shot
 
-💻 **Run this in the terminal**
+💻 **Run this in the terminal:**
 
 ```bash
-gh copilot explain "find . -type f -name '*.log' -mtime +7 -delete"
+copilot -p "explain what this command does: find . -type f -name '*.log' -mtime +7 -delete"
 ```
 
 🗣 **Teaching points**
 
-- Copilot breaks the command down flag by flag.
-- This is useful when you receive a script you did not write and want to understand it before running it.
-- It is a fast way to build your own shell literacy — you learn from the explanation.
+- One-shot prompt, no interactive session — Copilot answers and exits.
+- This replaces the old `gh copilot explain` use case but is more powerful: it's a full agent, not just an API call.
+- **Watch the bottom of the output.** Every `-p` invocation prints `AI Credits X.X (Ys)` and `Tokens ↑X • ↓Y`. That's the cost story made literal — every prompt tells you exactly what you just spent.
 
 💻 **Ask the room:**
 
-> Who has ever run a command copied from the internet without fully understanding it? This is a safer approach.
+> Who has ever run a command copied from the internet without fully understanding it? The new CLI doesn't just explain — it also tells you exactly how much that explanation cost.
+
+⚠️ **Presenter tip:** If you want a faster, cheaper explanation, lower the reasoning effort: `copilot -p --effort low "..."`. Worth mentioning if anyone asks about the credit display.
 
 ---
 
-## Demo: `gh copilot suggest` (shell)
+## Demo: `copilot -i` — interactive agent session
 
-💻 **Type this in the terminal:**
+💻 **Start an interactive session:**
 
 ```bash
-gh copilot suggest "show me all Git branches sorted by the date of their last commit"
+copilot -i "I need to undo the last commit but keep the changes staged. Walk me through the safest way."
 ```
 
-Select **shell command** when prompted for target type.
+🗣 **Walk through:**
+
+- Copilot responds, may ask clarifying questions, and can propose (and with your approval, run) commands.
+- This is **not** the old `gh copilot suggest` UX — it's a full agent that can read files, run shell, and iterate over multiple turns.
+- Inside this session, all the slash commands we just talked about work: `/usage`, `/chronicle`, `/compact`, and the session-management commands like `/new` and `/resume`.
+
+💻 **Run `/usage` mid-session:**
+
+- Show the credit balance live. This is the UBB callback made concrete — attendees can see, in real time, what the conversation is costing.
+
+💻 **Run a follow-up turn in the same session:**
+
+> Now help me write a small shell script that finds Python files modified in the last 7 days and runs flake8 on them.
 
 🗣 **Teaching points**
 
-- Copilot generates a real, runnable command from plain English.
-- It may ask a clarifying question if the request is ambiguous.
-- Always review before running — especially commands that modify files or run as root.
+- The session has memory across turns. The script you build is the result of a conversation, not a one-shot prompt.
+- This is why `/compact` matters: long sessions accumulate context, and that context costs credits on every subsequent turn.
+- When you're done, exit with `/exit` or Ctrl+D.
 
-💻 **Try a second one:**
-
-```bash
-gh copilot suggest "create a pull request from the current branch to main and set me as reviewer" --target gh
-```
-
-🗣 **Teaching point**
-
-- The `--target gh` flag scopes the suggestion to GitHub CLI commands.
-- Useful for teams adopting `gh` in their workflows.
+⚠️ **Presenter tip:** Pre-warm a `copilot -i` session before stage time. The first auth flow on a fresh machine can take 15-20 seconds and breaks the demo flow if it happens live.
 
 ---
 
-## Demo: `gh copilot suggest` (Git)
-
-💻 **Type this:**
-
-```bash
-gh copilot suggest "undo the last commit but keep the changes staged" --target git
-```
-
-🗣 **Teaching points**
-
-- Copilot picks the safe approach for destructive Git operations.
-- This is especially valuable for developers who are less experienced with Git's more advanced commands.
-
----
-
-## Comparing CLI and IDE
+## Comparing CLI agent and IDE Chat
 
 🗣 **Walk through this comparison live or on a slide:**
 
 | Scenario | Better tool |
 | --- | --- |
-| Writing or editing code in a file | IDE (VS Code) |
-| Generating a shell command | CLI (`gh copilot suggest`) |
-| Understanding unfamiliar shell script | CLI (`gh copilot explain`) |
+| Writing or editing code in a file | IDE (VS Code Chat) |
+| Quick command explanation | CLI (`copilot -p "explain ..."`) |
+| Generating and running a shell script iteratively | CLI (`copilot -i`) |
 | Debugging a complex function | IDE (Copilot Chat) |
-| Running a multi-step Git workflow | CLI (`gh copilot suggest --target git`) |
-| Automated multi-step project task | VS Code agent mode |
+| Multi-step task across many files in a repo | Either — pick the surface where you want the review UX |
+| Cost-aware long sessions | CLI — same slash commands, but `/usage` lives only here |
+| Automated multi-step project task | VS Code agent mode (next demo) |
 
 🗣 **Key message:**
 
-> These tools are not competing. Each one meets you where you already are. If you are in the editor, use Chat. If you are in the terminal, use `gh copilot`. They share the same underlying intelligence.
+> Same engine. Same credits. Two surfaces. Pick the one that's already where your work is. The cost-control discipline is identical across both — and that's the whole point of credit-based billing.
 
 ---
 
 ## Demo: VS Code agent mode
 
-🗣 **Introduce agent mode**
+🗣 **Bridge from the CLI agent:**
 
-> In VS Code, agent mode is what happens when you give Copilot a high-level goal and let it plan and execute the steps, instead of writing one prompt at a time. Think of it like hiring a junior engineer: you give them the goal, you review their work at each step, and you stay in control of what gets applied.
+> The CLI you just saw is an agent. VS Code has its own agent surface — same underlying capabilities, different UX. If you prefer the editor review loop with side-by-side diffs and inline approvals, this is your home base.
 
 ### Agent mode in VS Code
 
@@ -706,7 +698,7 @@ Review all Python files in lab-03-feature-build/starter/ and identify any functi
 
 🗣
 
-> Use agent mode when the task is well-defined but involves too many steps to prompt one by one. Use regular Chat when you want tighter control at each step. Use completions when you mostly know what to write next.
+> Use agent mode when the task is well-defined but involves too many steps to prompt one by one. Use regular Chat when you want tighter control at each step. Use the CLI when you're already in the terminal. Use completions when you mostly know what to write next.
 
 ---
 
@@ -714,12 +706,13 @@ Review all Python files in lab-03-feature-build/starter/ and identify any functi
 
 🧪 **Cue for attendees**
 
-> Your turn. Open `lab-05-github-cli/exercises/CLI_CHALLENGES.md` and work through the challenges. If you have GitHub CLI installed and authenticated, start with `explain` and `suggest`. If you do not have it yet, work through the agent mode section in VS Code.
+> Your turn. Open `lab-05-github-cli/exercises/CLI_CHALLENGES.md` and work through the challenges. Start with the install if you haven't, then `copilot -p` for one-shot prompts, then `copilot -i` for interactive sessions. The VS Code agent mode challenge at the end is the IDE counterpart.
 
 ⚠️ **Facilitation tips**
 
-- Walk around and check that attendees have `gh copilot` installed. Some may need to run the install steps during this time.
-- The VS Code agent mode challenge works as a fallback if CLI setup is blocked.
+- Walk around and check that attendees have `copilot` installed via npm. Some may need to run the install step during this time.
+- Encourage attendees to run `/usage` early — it sets a baseline they can compare to at the end of lab.
+- The VS Code agent mode challenge works as a fallback if standalone CLI install is blocked (e.g., npm permissions).
 - Encourage attendees to try prompts they actually want to know — their real-world use cases are better motivators than practice examples.
 
 ---
@@ -858,7 +851,7 @@ Show (or describe):
 - Keep practicing on small everyday tasks
 - Use completions for routine code you already understand
 - Use Chat for explanation, debugging, refactoring, and tests
-- Install `gh` and `gh copilot` and try it on a real shell task this week
+- Install the standalone GitHub Copilot CLI (`npm install -g @github/copilot`) and try `copilot -i` on a real shell task this week
 - Try VS Code agent mode on a real project task
 - Sign up for or install the GitHub Copilot app and run your first agent session
 - Reuse the labs in this repo after the session
