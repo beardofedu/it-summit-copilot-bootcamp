@@ -14,6 +14,7 @@ Learn how to:
 ## Files in this lab
 
 - `exercises/APP_CHALLENGES.md`
+- `AZURE_BOARDS_REFERENCE.md`
 
 ## Background: GitHub Copilot App vs. VS Code agent mode vs. CLI
 
@@ -46,6 +47,7 @@ The GitHub Copilot app is currently in **public preview**:
 1. Install the app and sign in with your GitHub account.
 2. Open a repository you own or have write access to.
 3. Work through the challenges in order: start a session, direct the agent, review changes.
+4. Review `AZURE_BOARDS_REFERENCE.md` for the Azure DevOps workflow that sends Azure Boards work items to Copilot cloud agent.
 
 ## Tips
 
