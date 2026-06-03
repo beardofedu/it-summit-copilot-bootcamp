@@ -459,6 +459,12 @@ Example prompt:
 
 - Whole-project context can be powerful, but scoped prompts are often faster and more accurate.
 
+## Bridge to Section 5
+
+🗣
+
+> Those slash commands make you *faster*. In the next section we'll touch a different category — slash commands that make you *cheaper*. Under the new credit-based billing, that matters as much as speed. I'll walk through them while you're setting up the CLI lab.
+
 ---
 
 # Section 5: GitHub Copilot CLI
@@ -504,6 +510,76 @@ gh copilot --version
 🗣 **Say this:**
 
 > If you have a GitHub account with Copilot access, this is all you need for the `gh copilot` exercises in this lab. For newer terminal agent workflows, GitHub is moving toward the standalone GitHub Copilot CLI.
+
+---
+
+## Dead-air narration: cost-aware slash commands
+
+📣 **Use this during install/setup time.** While attendees are running `gh extension install github/gh-copilot`, authenticating, and trying their first commands, walk through these talking points. Treat it as a script — drop any individual command if the room is moving fast.
+
+🗣 **Framing line to open:**
+
+> While you're getting set up, let me give you the other half of the slash command story. The ones you saw in Section 4 made you faster. These five make you cheaper. Most of them work in both the CLI you're installing right now *and* in VS Code Chat — same vocabulary, two surfaces. Under credit-based billing as of two days ago, that matters.
+
+### `/usage` — credit accounting in the terminal (~60 sec narration)
+
+🗣
+- **CLI only** — does not exist in VS Code Chat.
+- Shows your credit consumption directly in the terminal — same information you'd find in the GitHub web UI, available without leaving your shell.
+- Suggest attendees run it as their first command once they're authenticated. Sets a baseline for the rest of the lab.
+
+### `/chronicle` — review your session, tune your usage (~2 min narration)
+
+🗣
+- Works in **both** Copilot Chat (VS Code) and Copilot CLI.
+- Surfaces data points about your recent sessions so you can understand how you're working with Copilot and tweak your usage accordingly.
+- Sub-commands worth naming aloud:
+  - `/chronicle:standup` — summarize recent sessions by repo and branch
+  - `/chronicle:cost-tips` — personalized suggestions on reducing token usage based on your own session history
+  - `/chronicle:tips` — general workflow advice
+  - `/chronicle:search <query>` — find past sessions
+- Closes the loop on the **context engineering** thread from the morning Enterprise session — `/chronicle:cost-tips` surfaces where context engineering decisions are affecting credit spend.
+
+### `/compact` — mid-flight context compression (~90 sec narration)
+
+🗣
+- Works in **both** Copilot Chat (VS Code) and Copilot CLI.
+- Long conversations carry their full history into every new turn. That history costs tokens, which costs credits.
+- `/compact` summarizes the conversation so far and continues with a smaller context footprint.
+- Use it when a conversation is productive but getting expensive — preserves the thread without the cost of starting over.
+
+### `/plan` — plan before you spend (~90 sec narration)
+
+🗣
+- Available in VS Code Copilot Chat.
+- Returns a step-by-step approach **before** any code is generated.
+- Front-loads thinking and avoids the failure mode where you burn five turns iterating on the wrong approach.
+- Fewer turns to a working result = fewer credits spent.
+
+### `/model` — engine choice as a cost lever (~90 sec narration)
+
+🗣
+- Available in VS Code Copilot Chat.
+- Different models burn different credits per request. The right model for the task is the first cost decision you make.
+- Lighter models for boilerplate, planning, and quick explanations. Reserve premium models for hard reasoning, agent mode, and large refactors.
+- Most direct cost lever Copilot gives you in the IDE.
+
+### Cross-surface punchline
+
+🗣
+
+> Same five commands span the IDE and the terminal. The cost vocabulary travels with you. That's the whole point — credit-based billing means cost-awareness is a cross-surface discipline, not an IDE-only afterthought.
+
+### Pacing safety net
+
+⚠️ **If the room is mostly through setup already:**
+- Drop `/chronicle:tips` and `/plan` first — nice-to-have, not load-bearing.
+- Always hit `/usage` (right after install, immediate payoff) and `/chronicle:cost-tips` + `/model` (the UBB moments).
+- If only 60 seconds remain, jump to the cross-surface punchline.
+
+⚠️ **If the room is slow on setup:**
+- Spend more time on `/chronicle:cost-tips` — show example output if you have a recent session to point at.
+- Pivot into Q&A about cost specifically. UBB will dominate the room's questions anyway.
 
 ---
 
