@@ -3,6 +3,8 @@
 Work through these challenges in order. Each one builds on the previous.
 
 > **Note:** The GitHub Copilot app is in public preview. If you do not yet have access, read through the challenges and follow along with the presenter demo. You can sign up for early access at [gh.io/github-app](https://gh.io/github-app).
+>
+> If your team tracks work in Azure DevOps, also review `../AZURE_BOARDS_REFERENCE.md` for the Azure Boards workflow that can create a GitHub pull request with Copilot directly from a work item.
 
 ---
 
