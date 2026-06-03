@@ -519,7 +519,7 @@ gh copilot --version
 
 🗣 **Framing line to open:**
 
-> While you're getting set up, let me give you the other half of the slash command story. The ones you saw in Section 4 made you faster. These five make you cheaper. Most of them work in both the CLI you're installing right now *and* in VS Code Chat — same vocabulary, two surfaces. Under credit-based billing as of two days ago, that matters.
+> While you're getting set up, let me give you the other half of the slash command story. The ones you saw in Section 4 made you faster. These five make you cheaper. Two of them — `/chronicle` and `/compact` — work in both the CLI you're installing right now *and* in VS Code Chat. The other three are surface-specific. Either way, the cost-control thinking travels with you. Under credit-based billing as of two days ago, that matters.
 
 ### `/usage` — credit accounting in the terminal (~60 sec narration)
 
@@ -568,7 +568,7 @@ gh copilot --version
 
 🗣
 
-> Same five commands span the IDE and the terminal. The cost vocabulary travels with you. That's the whole point — credit-based billing means cost-awareness is a cross-surface discipline, not an IDE-only afterthought.
+> The cost vocabulary travels across surfaces. `/chronicle` and `/compact` work in both the IDE and the terminal — pick up the discipline once, apply it wherever you're working. Credit-based billing means cost-awareness is a cross-surface discipline, not an IDE-only afterthought.
 
 ### Pacing safety net
 
