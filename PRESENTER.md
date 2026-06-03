@@ -35,6 +35,10 @@
 
 > Today is about becoming comfortable with GitHub Copilot fast. We are not trying to memorize every feature. We are learning a practical workflow: when inline suggestions are enough, when Chat is better, and how to guide both with better prompts.
 
+🗣 **Connecting back to this morning's Enterprise session (if attendees were there):**
+
+> "Some of you heard the term *context engineering* this morning — the discipline of staging good inputs for AI to work with. Today is the craft side of that. Every prompt-engineering technique we'll practice is also a context-engineering technique. The framing scales from individual habit to team practice to organizational capability."
+
 🗣 **Expectation setting:**
 
 > You do not need prior Copilot experience. If you are brand new, that is completely fine. We start from zero and build up in layers.
