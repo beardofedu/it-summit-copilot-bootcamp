@@ -399,13 +399,13 @@ Prompt:
 Talking point:
 - Useful when you already have an error and want help isolating a repair
 
-### Demo `/test`
+### Demo `/tests`
 
 💻 Select a function or reference a file.
 
 Prompt:
 
-> /test Generate tests for the task loading and saving behavior.
+> /tests Generate tests for the task loading and saving behavior.
 
 Talking point:
 - Helpful for scaffolding tests quickly, but still requires review
